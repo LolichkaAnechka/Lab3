@@ -1,0 +1,72 @@
+{
+    "event": {
+        "bought_tickets": {
+            "7d49d3e6-4272-11ec-a25e-70c94ef7cebc": {
+                "name": "Jabroni",
+                "surname": "Abobenko",
+                "price": 50,
+                "purchase_date": "2021-11-11 00:06:43.757744"
+            },
+            "93cd87d6-4272-11ec-8b7f-70c94ef7cebc": {
+                "name": "Jabroni",
+                "surname": "Abobenko",
+                "price": 50,
+                "purchase_date": "2021-11-11 00:07:21.521770"
+            },
+            "0735124d-42c5-11ec-91bf-70c94ef7cebc": {
+                "name": "Jabroni",
+                "surname": "Abobenko",
+                "price": 50,
+                "purchase_date": "2021-11-11 09:57:33.861695"
+            },
+            "4d862183-42c5-11ec-8230-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 09:59:31.832919"
+            },
+            "e5b53c1b-42c6-11ec-b311-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 10:10:56.667987"
+            },
+            "3fdf9146-42c7-11ec-a4b4-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 10:13:27.945860"
+            },
+            "4ec161d4-42c7-11ec-9e29-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 10:13:52.910870"
+            },
+            "5a428e24-42c7-11ec-a108-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 10:14:12.214835"
+            },
+            "fad2360f-4314-11ec-a109-70c94ef7cebc": {
+                "name": 1,
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 19:29:52.853896"
+            },
+            "5172c463-431b-11ec-8de8-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 20:15:15.153124"
+            },
+            "5b68ae2d-431b-11ec-ad90-70c94ef7cebc": {
+                "name": "Vitaliy",
+                "surname": "Cal`",
+                "price": 50,
+                "purchase_date": "2021-11-11 20:15:31.860718"
+            }
+        }
+    }
+}
