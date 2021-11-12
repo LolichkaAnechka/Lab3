@@ -13,7 +13,6 @@
 import json
 import uuid
 import datetime
-from abc import abstractmethod
 from dataclasses import dataclass
 
 class NoTickestLeftError(Exception):
@@ -27,11 +26,9 @@ class Customer:
     __isstudent: bool 
 
     def __init__(self, name, surname, isstudent):
-        if not (isinstance(name, str) and isinstance(surname, str) and isinstance(isstudent, bool)):
-            raise TypeError("Wrong value type")
-        self.__name=name
-        self.__surname=surname
-        self.__isstudent=isstudent
+        self.name=name
+        self.surname=surname
+        self.isstudent=isstudent
 
 
     @property
@@ -86,7 +83,7 @@ class Event:
         
 
     def generate_ticket(self, customer: Customer):
-        date_delta = (datetime.datetime.now() - self.date).days
+        date_delta = (self.date - datetime.datetime.now()).days
         if not date_delta > 0:
             raise ValueError("Too late to buy tickets")
 
@@ -117,7 +114,7 @@ class Event:
 class Ticket():
     __id: str
     def __init__(self):
-        self.__id = uuid.uuid1()
+        self.id = str(uuid.uuid1())
 
 
     @property
@@ -215,9 +212,9 @@ class ImaginaryPaymentProcess:
 
 
 event = Event()
-customer1 =  Customer("Vitaliy", "Cal`", True)
+customer1 =  Customer("Vitaliy", "Gromyako", True)
 
+customer2 =  Customer("Toyvo", "Zibrov", False)
 z = ImaginaryPaymentProcess()
 z.buy_ticket(customer1, event)
-
-event.find_already_bought_ticket("7d49d3e6-4272-11ec-a25e-70c94ef7cebc")
+z.buy_ticket(customer2, event)
