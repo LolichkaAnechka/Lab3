@@ -134,7 +134,7 @@ class Regular(Ticket):
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = json.load(f)['event']['tickets']['regular']["cost"]
+            self.price = json.load(f)['event']['tickets']['regular']["cost"]
     
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -149,7 +149,7 @@ class Advanced(Ticket):
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = int(json.load(f)['event']['tickets']['advanced']["cost"])
+            self.price = int(json.load(f)['event']['tickets']['advanced']["cost"])
 
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -163,7 +163,7 @@ class Late(Ticket):
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = int(json.load(f)['event']['tickets']['late']["cost"])
+            self.price = int(json.load(f)['event']['tickets']['late']["cost"])
 
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -178,7 +178,7 @@ class Student(Ticket):
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = int(json.load(f)['event']['tickets']['student']["cost"])
+            self.price = int(json.load(f)['event']['tickets']['student']["cost"])
 
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -218,3 +218,5 @@ customer2 =  Customer("Toyvo", "Zibrov", False)
 z = ImaginaryPaymentProcess()
 z.buy_ticket(customer1, event)
 z.buy_ticket(customer2, event)
+
+event.find_already_bought_ticket("4f876069-43d1-11ec-9548-70c94ef7cebc")
