@@ -166,7 +166,7 @@ class Late(Ticket):
             self.__price = int(json.load(f)['event']['tickets']['late']["cost"])
 
     def __str__(self):
-        return f"Ticket: {self.id}\nPrice: {self.price}\n "
+        return f"Ticket: {self.id}\nPrice: {self.price}\n " 
 
     @property
     def price(self):
