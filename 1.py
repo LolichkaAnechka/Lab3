@@ -13,7 +13,6 @@
 import json
 import uuid
 import datetime
-from dataclasses import dataclass
 
 class NoTickestLeftError(Exception):
     def __init__(self, message):
@@ -21,10 +20,6 @@ class NoTickestLeftError(Exception):
 
 
 class Customer:
-    __name: str
-    __surname: str
-    __isstudent: bool 
-
     def __init__(self, name, surname, isstudent):
         self.name=name
         self.surname=surname
@@ -65,8 +60,6 @@ class Customer:
         if not isinstance(value, bool):
             raise TypeError("Wrong type for 'isstudent' atribute")
         self.__isstudent = value
-
-
 
 
 class Event:
@@ -110,9 +103,8 @@ class Event:
         else:
             return Regular()
 
-@dataclass
+
 class Ticket():
-    __id: str
     def __init__(self):
         self.id = str(uuid.uuid1())
 
@@ -130,11 +122,10 @@ class Ticket():
 
 
 class Regular(Ticket):
-    __price: int
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = json.load(f)['event']['tickets']['regular']["cost"]
+            self.price = json.load(f)['event']['tickets']['regular']["cost"]
     
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -143,13 +134,18 @@ class Regular(Ticket):
     def price(self):
         return self.__price
 
+    @price.setter
+    def price(self, value):
+        if not isinstance(value, int):
+            raise TypeError("Wrong type for 'price' atribute")
+        self.__price = value
+
 
 class Advanced(Ticket):
-    __price: int
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = int(json.load(f)['event']['tickets']['advanced']["cost"])
+            self.price = int(json.load(f)['event']['tickets']['advanced']["cost"])
 
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -158,12 +154,17 @@ class Advanced(Ticket):
     def price(self):
         return self.__price
 
+    @price.setter
+    def price(self, value):
+        if not isinstance(value, int):
+            raise TypeError("Wrong type for 'price' atribute")
+        self.__price = value
+
 class Late(Ticket):
-    __price: int
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = int(json.load(f)['event']['tickets']['late']["cost"])
+            self.price = int(json.load(f)['event']['tickets']['late']["cost"])
 
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n " 
@@ -172,13 +173,18 @@ class Late(Ticket):
     def price(self):
         return self.__price
 
+    @price.setter
+    def price(self, value):
+        if not isinstance(value, int):
+            raise TypeError("Wrong type for 'price' atribute")
+        self.__price = value
+
 
 class Student(Ticket):
-    __price: int
     def __init__(self) -> None:
         super().__init__()
         with open("1.json", encoding="utf-8") as f:
-            self.__price = int(json.load(f)['event']['tickets']['student']["cost"])
+            self.price = int(json.load(f)['event']['tickets']['student']["cost"])
 
     def __str__(self):
         return f"Ticket: {self.id}\nPrice: {self.price}\n "
@@ -187,9 +193,14 @@ class Student(Ticket):
     def price(self):
         return self.__price
 
+    @price.setter
+    def price(self, value):
+        if not isinstance(value, int):
+            raise TypeError("Wrong type for 'price' atribute")
+        self.__price = value
+
 
 class ImaginaryPaymentProcess:
-
     @staticmethod
     def buy_ticket(customer: Customer, event: Event):
         ticket = event.generate_ticket(customer)
